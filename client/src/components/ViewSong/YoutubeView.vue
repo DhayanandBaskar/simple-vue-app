@@ -7,15 +7,11 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 export default {
   computed: {
     youtubeUrl () {
       return 'https://www.youtube.com/embed/' + this.youtubeId
     }
-  },
-  components: {
-    Panel
   },
   props: [
     'youtubeId'
