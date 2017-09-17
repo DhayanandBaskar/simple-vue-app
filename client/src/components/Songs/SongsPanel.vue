@@ -2,6 +2,7 @@
   <panel title="Songs">
   <v-btn
       slot="action"
+      v-if="isUserLoggedIn"
       class="cyan accent-2"
       light
       medium
@@ -49,11 +50,18 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+import {mapState} from 'vuex'
 export default {
   data () {
     return {
       songs: null
     }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
   },
   watch: {
     '$route.query.search': {
